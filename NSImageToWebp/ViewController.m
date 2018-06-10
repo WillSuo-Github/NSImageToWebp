@@ -7,21 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "NSImage+Webp.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Do any additional setup after loading the view.
+    NSImage *image = [NSImage imageNamed:@"3.jpeg"];
+    NSData *webpData = [image toWebpImageDataWithLossLess:false quality:0.01f];
+    [webpData writeToFile:@"/Users/greatlock/Desktop/1.webp" atomically:true];
 }
-
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
-}
-
 
 @end
